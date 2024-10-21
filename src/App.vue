@@ -1,10 +1,6 @@
 <template>
-  <div class="container">
-    <left-panel :progress="progress" />
-    <div class="main-content">
-      <subscription-list @update-progress="updateProgress" />
-    </div>
-  </div>
+  <left-panel :progress="progress" />
+  <subscription-list @update-progress="updateProgress" />
 </template>
 
 <script setup lang="ts">

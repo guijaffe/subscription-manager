@@ -7,7 +7,6 @@
     <p class="subscription-list__text">
       To unsubscribe, please uncheck the appropriate box(es).
     </p>
-
     <div class="subscription-list__banners">
       <div class="subscription-banners" v-for="site in sites" :key="site.id">
         <div class="subscription-banners__logo">
@@ -20,7 +19,9 @@
           <button
               :class="[
               'subscribe-button',
-              site.subscribed ? 'subscribed-button' : 'subscribe-button-regular'
+              site.subscribed ?
+              'subscribed-button' :
+              'subscribe-button-regular'
             ]"
               @click="toggleSubscribe(site)"
           >

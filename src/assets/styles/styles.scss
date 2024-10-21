@@ -97,17 +97,12 @@ h1, h2, h3, h4, h5, h6 {
 
   &__content__message {
     margin-top: $space-sm;
-    margin-bottom: $space-sm;
     font-size: $font-size-medium;
     color: $darker-gray;
   }
 
   &__content__progress {
-    background-color: $almost-black;
-    width: 100%;
-    height: 16px;
-    margin-bottom: $space-sm;
-    border-radius: 8px;
+    display: flex;
   }
 
   &__bottom-content {
@@ -195,12 +190,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .progress-bar {
-  height: 100%;
-  transition: width 0.5s ease-in-out,
-  border-top-right-radius 0.5s ease-in-out,
-  border-bottom-right-radius 0.5s ease-in-out;
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
+  background-color: $almost-black;
+  width: 100%;
+  height: 16px;
+  margin-bottom: $space-sm;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  &__settings {
+    height: 100%;
+    transition: width 0.5s ease-in-out,
+    border-top-right-radius 0.5s ease-in-out,
+    border-bottom-right-radius 0.5s ease-in-out;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+
+
+  }
 }
 
 .subscribe-button-regular {
@@ -272,14 +279,20 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 0;
   }
 
+  .subscription-list {
+    padding: $space-xl $space-xs;
+  }
+
   .toggle-btn {
     display: block;
-    margin-left: 270px;
+    margin-left: 263px;
     background-color: #FFFFFF;
   }
 
   .left-panel {
     transform: translateX(-100%);
+    width: 280px;
+    padding: $space-sm;
   }
 
   .left-panel.is-hidden {
@@ -294,4 +307,13 @@ h1, h2, h3, h4, h5, h6 {
   .subscription-list__banners {
     justify-content: center;
   }
+}
+
+.darker-gray {
+  color: $darker-gray;
+}
+
+.percent {
+  color: $orange;
+  margin-left: $space-sm;
 }

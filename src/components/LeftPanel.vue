@@ -10,15 +10,18 @@
       <div class="left-panel__content__email">
         <span>harry.simon@yahoo.com</span>
       </div>
+      <small class="darker-gray">FUN YOU GET</small>
       <div class="left-panel__content__progress">
-        <div class="progress-bar" :style="{
-          width: progress + '%',
-          backgroundColor: 'orange',
-          borderTopRightRadius: progress === 100 ? '8px' : '0',
-          borderBottomRightRadius: progress === 100 ? '8px' : '0'
-        }">
+        <div class="progress-bar">
+          <div class="progress-bar__settings" :style="{
+            width: progress + '%',
+            backgroundColor: 'orange',
+            borderTopRightRadius: progress === 100 ? '8px' : '0',
+            borderBottomRightRadius: progress === 100 ? '8px' : '0'
+          }">
+          </div>
         </div>
-        <div><small>{{ progress }}% </small></div>
+        <div class="percent">{{ progress }}%</div>
       </div>
       <div class="left-panel__content__message">
         <span class="highlight">Subscribe</span> to all our fun sites to upgrade your fun progress
@@ -39,7 +42,7 @@
         <small><a href="#">Privacy Policy</a></small>
       </div>
     </div>
-    <button class="toggle-btn" @click="togglePanel">☰</button>
+    <button class="toggle-btn" @click="togglePanel" title="Click me!">☰</button>
   </aside>
 </template>
 
