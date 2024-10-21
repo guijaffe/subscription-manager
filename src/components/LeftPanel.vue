@@ -1,5 +1,5 @@
 <template>
-  <aside class="left-panel">
+  <aside :class="['left-panel', { 'is-hidden': !isVisible && isMobile }]">
     <div class="left-panel__logo">
       <img src="../assets/logo.svg" alt="Logo" />
     </div>
@@ -11,9 +11,14 @@
         <span>harry.simon@yahoo.com</span>
       </div>
       <div class="left-panel__content__progress">
-        <div class="progress-bar" :style="{ width: progress + '%', backgroundColor: 'orange', borderTopRightRadius: progress === 100 ? '8px' : '0',
-            borderBottomRightRadius: progress === 100 ? '8px' : '0' }"></div>
-        <small>{{ progress }}% FUN YOU GET</small>
+        <div class="progress-bar" :style="{
+          width: progress + '%',
+          backgroundColor: 'orange',
+          borderTopRightRadius: progress === 100 ? '8px' : '0',
+          borderBottomRightRadius: progress === 100 ? '8px' : '0'
+        }">
+        </div>
+        <div><small>{{ progress }}% </small></div>
       </div>
       <div class="left-panel__content__message">
         <span class="highlight">Subscribe</span> to all our fun sites to upgrade your fun progress
@@ -34,6 +39,7 @@
         <small><a href="#">Privacy Policy</a></small>
       </div>
     </div>
+    <button class="toggle-btn" @click="togglePanel">☰</button>
   </aside>
 </template>
 
@@ -43,6 +49,27 @@ export default {
     progress: {
       type: Number,
       required: true
+    }
+  },
+  data() {
+    return {
+      isVisible: true,
+      isMobile: false
+    };
+  },
+  mounted() {
+    this.updateMobileView();
+    window.addEventListener('resize', this.updateMobileView);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateMobileView);
+  },
+  methods: {
+    togglePanel() {
+      this.isVisible = !this.isVisible;
+    },
+    updateMobileView() {
+      this.isMobile = window.innerWidth < 1024;
     }
   }
 };

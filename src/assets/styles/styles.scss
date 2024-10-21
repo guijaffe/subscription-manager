@@ -12,6 +12,7 @@ a {
 }
 
 main {
+  margin-left: $left-panel;
   padding: 24px;
 }
 
@@ -67,11 +68,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .left-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: $left-panel;
   background-color: #FFFFFF;
   padding: $left-panel-padding;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
 
   &__logo {
     padding-top: 80px;
@@ -87,12 +94,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: $space-sm;
     font-size: $font-size-medium;
   }
+
   &__content__message {
     margin-top: $space-sm;
     margin-bottom: $space-sm;
     font-size: $font-size-medium;
     color: $darker-gray;
   }
+
   &__content__progress {
     background-color: $almost-black;
     width: 100%;
@@ -112,8 +121,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+
 .subscription-list {
-  width: 100%;
   padding: $right-panel-padding;
 
   &__info {
@@ -231,4 +240,58 @@ h1, h2, h3, h4, h5, h6 {
 
 .subscribe-button, .subscribed-button {
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: $breakpoint-xl) {
+  .subscription-list {
+    padding: $space-xs;
+  }
+}
+
+.left-panel {
+}
+
+.is-hidden {
+  transform: translateX(-100%);
+}
+
+.toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  z-index: 1100;
+}
+
+
+@media (max-width: $breakpoint-md) {
+  main {
+    margin-left: 0;
+  }
+
+  .toggle-btn {
+    display: block;
+    margin-left: 270px;
+    background-color: #FFFFFF;
+  }
+
+  .left-panel {
+    transform: translateX(-100%);
+  }
+
+  .left-panel.is-hidden {
+    transform: translateX(0);
+  }
+
+  .subscription-banners {
+    width: 310px;
+    padding: $space-sm;
+  }
+
+  .subscription-list__banners {
+    justify-content: center;
+  }
 }

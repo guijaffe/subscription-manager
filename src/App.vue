@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <left-panel :progress="progress" />
-    <subscription-list @update-progress="updateProgress" />
+    <div class="main-content">
+      <subscription-list @update-progress="updateProgress" />
+    </div>
   </div>
 </template>
 
@@ -16,3 +18,7 @@ const updateProgress = (newProgress: number) => {
   progress.value = newProgress;
 };
 </script>
+
+<style scoped>
+
+</style>
