@@ -1,0 +1,236 @@
+@use 'variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $almost-black;
+}
+
+a {
+  color: $darkest-gray;
+}
+
+main {
+  padding: 24px;
+}
+
+body {
+  background-color: $lighter-gray;
+  height: 100%;
+  font-family: Rubik, sans-serif;
+}
+
+small {
+  font-size: $font-size-small;
+  color: $darkest-gray;
+}
+
+button {
+  padding: $button-padding;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+p {
+  font-size: $font-size-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+.button-primary {
+  color: $blue-main;
+  font-size: $font-size-base;
+  border-radius: $button-border-radius;
+  border: $button-border;
+}
+
+.button-secondary {
+  background-color: $blue-main;
+  font-size: $font-size-base;
+  border-radius: $button-border-radius;
+  border: $button-border;
+  color: #FFFFFF;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-panel {
+  width: $left-panel;
+  background-color: #FFFFFF;
+  padding: $left-panel-padding;
+  display: flex;
+  flex-direction: column;
+
+  &__logo {
+    padding-top: 80px;
+  }
+
+  &__text {
+    margin-top: $space-xl;
+    margin-bottom: $space-xl;
+  }
+
+  &__content__email {
+    margin-top: $space-sm;
+    margin-bottom: $space-sm;
+    font-size: $font-size-medium;
+  }
+  &__content__message {
+    margin-top: $space-sm;
+    margin-bottom: $space-sm;
+    font-size: $font-size-medium;
+    color: $darker-gray;
+  }
+  &__content__progress {
+    background-color: $almost-black;
+    width: 100%;
+    height: 16px;
+    margin-bottom: $space-sm;
+    border-radius: 8px;
+  }
+
+  &__bottom-content {
+    margin-top: auto;
+
+    &__address,
+    &__privacy {
+      margin-top: $space-sm;
+      margin-bottom: $space-sm;
+    }
+  }
+}
+
+.subscription-list {
+  width: 100%;
+  padding: $right-panel-padding;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: $space-md;
+  }
+
+  &__text {
+    color: $darkest-gray;
+    padding-bottom: $space-md;
+  }
+
+  &__content {
+    padding: $space-md;
+  }
+
+  &__banners {
+    margin: -$space-xs;
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+}
+
+.highlight {
+  color: $blue-main;
+}
+
+.subscription-banners {
+  width: 318px;
+  height: 327px;
+  background-color: #FFFFFF;
+  margin: $space-xs;
+  border-radius: 8px;
+  padding: $space-md;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.subscription-banners__logo {
+  position: relative;
+  width: 270px;
+  height: 168px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscription-banners__logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid $lighter-gray;
+  pointer-events: none;
+}
+
+.subscription-banners__text {
+  padding-top: $space-sm;
+  flex-grow: 1;
+}
+
+.subscription-banners__footer {
+  margin-top: auto;
+  display: flex;
+}
+
+.progress-bar {
+  height: 100%;
+  transition: width 0.5s ease-in-out,
+  border-top-right-radius 0.5s ease-in-out,
+  border-bottom-right-radius 0.5s ease-in-out;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+/* Стиль кнопки подписки по умолчанию */
+.subscribe-button-regular {
+  padding: 4px 12px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: #FFFFFF;
+  border-radius: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: $font-size-base;
+  line-height: 24px;
+}
+
+.subscribe-text {
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+/* Стиль кнопки, когда пользователь подписан */
+.subscribed-button {
+  padding: 4px 12px 4px 4px;
+  background-color: $lighter-main;
+  border-radius: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: $font-size-base;
+  line-height: 24px;
+}
+
+.subscribed-text {
+  display: flex;
+  align-items: center;
+  color: $blue-main;
+  & img {
+    padding-right: 8px;
+  }
+}
+
+.subscribe-button, .subscribed-button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
