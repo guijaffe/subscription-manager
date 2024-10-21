@@ -4,7 +4,7 @@
       <header class="modal__header">
         <h2>Are you sure?</h2>
         <button class="modal__close" @click="closePopup">
-          <img src="/src/assets/icons/x-icon.svg" alt="Close" />
+          <img src="/src/assets/icons/x-icon.svg" alt="Close"/>
         </button>
       </header>
       <div class="modal__body">
@@ -18,11 +18,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import {defineComponent, ref} from 'vue';
 
 export default defineComponent({
   props: {
-    newFun: { type: Number, required: true }
+    newFun: {type: Number, required: true}
   },
   setup() {
     const visible = ref(true);

@@ -1,7 +1,7 @@
 <template>
   <aside :class="['left-panel', { 'is-hidden': !isVisible && isMobile }]">
     <div class="left-panel__logo">
-      <img src="../assets/logo.svg" alt="Logo" />
+      <img src="../assets/logo.svg" alt="Logo"/>
     </div>
     <div class="left-panel__text">
       <p>How much fun<br>do you want in your life?</p>

@@ -10,7 +10,7 @@
     <div class="subscription-list__banners">
       <div class="subscription-banners" v-for="site in sites" :key="site.id">
         <div class="subscription-banners__logo">
-          <img :src="site.img" :alt="site.site" class="site-logo" />
+          <img :src="site.img" :alt="site.site" class="site-logo"/>
         </div>
         <div class="subscription-banners__text">
           <p>{{ truncateText(site.text, 64) }}</p>
@@ -34,18 +34,18 @@
       </div>
     </div>
   </main>
-  <Modal v-if="showModal" :oldFun="oldFun" :newFun="funPercentage" />
+  <Modal v-if="showModal" :oldFun="oldFun" :newFun="funPercentage"/>
 </template>
 
 <script lang="ts">
-import { ref, watchEffect } from 'vue';
+import {ref, watchEffect} from 'vue';
 import subscribeData from '../Subscribe.json';
 import Modal from "./Modal.vue";
 
 export default {
-  components: { Modal },
+  components: {Modal},
   emits: ['update-progress'],
-  setup(props, { emit }) {
+  setup(props, {emit}) {
     const sites = ref(subscribeData);
     const funPercentage = ref(0);
     const oldFun = ref(0);
