@@ -59,6 +59,7 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1050;
 
   &__content {
     background-color: #fff;
