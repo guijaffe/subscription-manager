@@ -33,8 +33,6 @@
       </div>
     </div>
   </main>
-
-  <!-- Всплывающее окно -->
   <Modal v-if="showModal" :oldFun="oldFun" :newFun="funPercentage" />
 </template>
 
@@ -47,16 +45,15 @@ export default {
   components: { Modal },
   emits: ['update-progress'],
   setup(props, { emit }) {
-    const sites = ref(subscribeData);  // Данные о подписках
-    const funPercentage = ref(0);      // Процент FUN YOU GET
-    const oldFun = ref(0);             // Старое значение
-    const showModal = ref(false);      // Видимость Popup
+    const sites = ref(subscribeData);
+    const funPercentage = ref(0);
+    const oldFun = ref(0);
+    const showModal = ref(false);
 
-    // Обновление значения FUN YOU GET
     const updateFunProgress = () => {
       const subscribedCount = sites.value.filter(site => site.subscribed).length;
       funPercentage.value = Math.round((subscribedCount / sites.value.length) * 100);
-      emit('update-progress', funPercentage.value); // Отправляем округленное значение наверх
+      emit('update-progress', funPercentage.value);
     };
 
     const unsubscribeFromAll = () => {
@@ -66,13 +63,11 @@ export default {
       showModal.value = true;
     };
 
-    // Переключение состояния подписки
     const toggleSubscribe = (site: any) => {
       site.subscribed = !site.subscribed;
       updateFunProgress();
     };
 
-    // Рассчитываем процент при загрузке
     watchEffect(() => {
       updateFunProgress();
     });
