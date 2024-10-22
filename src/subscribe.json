@@ -2,19 +2,19 @@
   {
     "site": "trainyrbrain",
     "subscribed": true,
-    "img": "/assets/banners/quiz-logo-icon-vector-40094461.svg",
+    "img": "https://guijaffe.github.io/subscription-manager/assets/banners/quiz-logo-icon-vector-40094461.svg",
     "text": "Test your world geography skills"
   },
   {
     "site": "ynquiz",
     "subscribed": true,
-    "img": "/assets/banners/—Pngtree—trivia poster_6706386.svg",
+    "img": "subscription-manager/assets/banners/—Pngtree—trivia poster_6706386.svg",
     "text": "Test your knowledge with our fun and challenging quiz game! Competition"
   },
   {
     "site": "finditquiz",
     "subscribed": false,
-    "img": "/assets/banners/megaphone-banner-quiz-label-stock-illustration-vector.svg",
+    "img": "/subscription-manager/assets/banners/megaphone-banner-quiz-label-stock-illustration-vector.svg",
     "text": "Guess the song from short clips"
   },
   {
