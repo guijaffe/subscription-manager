@@ -10,7 +10,11 @@
     <div class="subscription-list__banners">
       <div class="subscription-banners" v-for="site in sites" :key="site.site">
         <div class="subscription-banners__logo">
-          <img :src="site.img" :alt="site.site" class="site-logo"/>
+          <img
+              :src="site.img"
+              :alt="site.site"
+              class="site-logo"
+          />
         </div>
         <div class="subscription-banners__text">
           <p>{{ truncateText(site.text, 64) }}</p>
@@ -19,11 +23,15 @@
           <button
               :class="[
               'subscribe-button',
-              site.subscribed ? 'subscribed-button' : 'subscribe-button-regular'
+              site.subscribed ?
+              'subscribed-button' :
+              'subscribe-button-regular'
             ]"
               @click="toggleSubscribe(site)"
           >
-            <span v-if="site.subscribed" class="subscribed-text">
+            <span
+                v-if="site.subscribed"
+                class="subscribed-text">
               <img src="/src/assets/icons/check.svg" alt="Check icon"> Subscribed
             </span>
             <span v-else class="subscribe-text">Subscribe</span>
