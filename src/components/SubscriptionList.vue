@@ -11,7 +11,7 @@
       <div class="subscription-banners" v-for="site in sites" :key="site.site">
         <div class="subscription-banners__logo">
           <img
-              :src="getImagePath(site.img)"
+              :src="site.img"
               :alt="site.site"
               class="site-logo"
           />
@@ -63,10 +63,6 @@ export default {
     const funPercentage = ref(0);
     const oldFun = ref(0);
     const showModal = ref(false);
-
-    const getImagePath = (path: string): string => {
-      return new URL(`../${path}`, import.meta.url).href;
-    };
 
     const updateFunProgress = () => {
       const subscribedCount = sites.value.filter(site => site.subscribed).length;
