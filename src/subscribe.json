@@ -2,43 +2,43 @@
   {
     "site": "trainyrbrain",
     "subscribed": true,
-    "img": "assets/banners/quiz-logo-icon-vector-40094461.svg",
+    "img": "subscription-manager/assets/banners/quiz-logo-icon-vector-40094461.svg",
     "text": "Test your world geography skills"
   },
   {
     "site": "ynquiz",
     "subscribed": true,
-    "img": "assets/banners/—Pngtree—trivia poster_6706386.svg",
+    "img": "subscription-manager/assets/banners/—Pngtree—trivia poster_6706386.svg",
     "text": "Test your knowledge with our fun and challenging quiz game! Competition"
   },
   {
     "site": "finditquiz",
     "subscribed": false,
-    "img": "assets/banners/megaphone-banner-quiz-label-stock-illustration-vector.svg",
+    "img": "subscription-manager/assets/banners/megaphone-banner-quiz-label-stock-illustration-vector.svg",
     "text": "Guess the song from short clips"
   },
   {
     "site": "moviequizonline",
     "subscribed": true,
-    "img": "assets/banners/pngtree-flatstyle-megaphone-with-quiz-speech-bubble-icon-and-questionnaire-vector-png-image_12863828.svg",
+    "img": "subscription-manager/assets/banners/pngtree-flatstyle-megaphone-with-quiz-speech-bubble-icon-and-questionnaire-vector-png-image_12863828.svg",
     "text": "Identify films from iconic scenes"
   },
   {
     "site": "findsuperstar",
     "subscribed": false,
-    "img": "assets/banners/quiz-logo-with-speech-bubble-symbols-concept-of-questionnaire-show-sing-quiz-button-question-competition-stock-illustration-vector.svg",
+    "img": "subscription-manager/assets/banners/quiz-logo-with-speech-bubble-symbols-concept-of-questionnaire-show-sing-quiz-button-question-competition-stock-illustration-vector.svg",
     "text": "Challenge your historical knowledge"
   },
   {
     "site": "whatcountry",
     "subscribed": false,
-    "img": "assets/banners/quiz-time-logo-icon-symbol-cartoon-yellow-bubble-speech-vector.svg",
+    "img": "subscription-manager/assets/banners/quiz-time-logo-icon-symbol-cartoon-yellow-bubble-speech-vector.svg",
     "text": "Answer questions on various sports"
   },
   {
     "site": "whatscience",
     "subscribed": false,
-    "img": "assets/banners/quiz-sticker-hand-lettering-word-art-vector-47934493.svg",
+    "img": "subscription-manager/assets/banners/quiz-sticker-hand-lettering-word-art-vector-47934493.svg",
     "text": "Prove your science smarts"
   }
 ]
