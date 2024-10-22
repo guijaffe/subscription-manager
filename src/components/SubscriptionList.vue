@@ -8,7 +8,7 @@
       To unsubscribe, please uncheck the appropriate box(es).
     </p>
     <div class="subscription-list__banners">
-      <div class="subscription-banners" v-for="site in sites" :key="site.id">
+      <div class="subscription-banners" v-for="site in sites" :key="site.site">
         <div class="subscription-banners__logo">
           <img :src="site.img" :alt="site.site" class="site-logo"/>
         </div>
@@ -19,33 +19,31 @@
           <button
               :class="[
               'subscribe-button',
-              site.subscribed ?
-              'subscribed-button' :
-              'subscribe-button-regular'
+              site.subscribed ? 'subscribed-button' : 'subscribe-button-regular'
             ]"
               @click="toggleSubscribe(site)"
           >
-          <span v-if="site.subscribed" class="subscribed-text">
-            <img src="/src/assets/icons/check.svg" alt="Check icon"> Subscribed
-          </span>
+            <span v-if="site.subscribed" class="subscribed-text">
+              <img src="/src/assets/icons/check.svg" alt="Check icon"> Subscribed
+            </span>
             <span v-else class="subscribe-text">Subscribe</span>
           </button>
         </div>
       </div>
     </div>
   </main>
-  <Modal v-if="showModal" :oldFun="oldFun" :newFun="funPercentage"/>
+  <Modal v-if="showModal" :oldFun="oldFun" :newFun="funPercentage" :visible="showModal" @close="closeModal"/>
 </template>
 
 <script lang="ts">
-import {ref, watchEffect} from 'vue';
+import { ref, watchEffect } from 'vue';
 import subscribeData from '../Subscribe.json';
 import Modal from "./Modal.vue";
 
 export default {
-  components: {Modal},
+  components: { Modal },
   emits: ['update-progress'],
-  setup(props, {emit}) {
+  setup(_, context) {
     const sites = ref(subscribeData);
     const funPercentage = ref(0);
     const oldFun = ref(0);
@@ -54,7 +52,7 @@ export default {
     const updateFunProgress = () => {
       const subscribedCount = sites.value.filter(site => site.subscribed).length;
       funPercentage.value = Math.round((subscribedCount / sites.value.length) * 100);
-      emit('update-progress', funPercentage.value);
+      context.emit('update-progress', funPercentage.value);
     };
 
     const unsubscribeFromAll = () => {
@@ -62,11 +60,27 @@ export default {
       sites.value.forEach(site => site.subscribed = false);
       updateFunProgress();
       showModal.value = true;
+
+      const currentState = sites.value.map(site => ({
+        site: site.site,
+        subscribed: site.subscribed
+      }));
+      console.log("Current subscriptions state:", JSON.stringify(currentState));
     };
 
-    const toggleSubscribe = (site: any) => {
+    const closeModal = () => {
+      showModal.value = false;
+    };
+
+    const toggleSubscribe = (site) => {
       site.subscribed = !site.subscribed;
       updateFunProgress();
+
+      const currentState = sites.value.map(site => ({
+        site: site.site,
+        subscribed: site.subscribed
+      }));
+      console.log("Current subscriptions state:", JSON.stringify(currentState));
     };
 
     watchEffect(() => {
@@ -74,11 +88,7 @@ export default {
     });
 
     const truncateText = (text: string, maxLength: number) => {
-      if (text.length > maxLength) {
-        return text.substring(0, maxLength) + '...';
-      } else {
-        return text;
-      }
+      return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
     };
 
     return {
@@ -87,14 +97,10 @@ export default {
       oldFun,
       showModal,
       truncateText,
-      updateFunProgress,
       unsubscribeFromAll,
+      closeModal,
       toggleSubscribe
     };
   }
 };
 </script>
-
-<style scoped>
-
-</style>

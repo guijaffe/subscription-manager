@@ -8,7 +8,7 @@
         </button>
       </header>
       <div class="modal__body">
-        <p>Please confirm that you want to unsubscribe from all and lose {{ newFun }}% fun.</p>
+        <p>Please confirm that you want to unsubscribe from all and lose {{ oldFun - newFun }}% fun.</p>
       </div>
       <footer class="modal__footer">
         <button class="button-secondary" @click="closePopup">Affirmative</button>
@@ -18,31 +18,25 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    newFun: {type: Number, required: true}
+    oldFun: { type: Number, required: true },
+    newFun: { type: Number, required: true },
+    visible: { type: Boolean, required: true }
   },
-  setup() {
-    const visible = ref(true);
-
-    const closePopup = () => {
-      visible.value = false;
-    };
-
-    const handleBackdropClick = (event: MouseEvent) => {
+  emits: ['close'],
+  methods: {
+    closePopup() {
+      this.$emit('close');
+    },
+    handleBackdropClick(event: MouseEvent) {
       const target = event.target as HTMLElement;
       if (target === event.currentTarget) {
-        closePopup();
+        this.closePopup();
       }
-    };
-
-    return {
-      visible,
-      closePopup,
-      handleBackdropClick
-    };
+    }
   }
 });
 </script>
