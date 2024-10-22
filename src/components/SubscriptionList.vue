@@ -95,7 +95,6 @@ export default {
     };
 
     return {
-      getImagePath,
       sites,
       funPercentage,
       oldFun,
