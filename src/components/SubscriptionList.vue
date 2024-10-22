@@ -40,11 +40,18 @@ import { ref, watchEffect } from 'vue';
 import subscribeData from '../Subscribe.json';
 import Modal from "./Modal.vue";
 
+interface Site {
+  site: string;
+  img: string;
+  text: string;
+  subscribed: boolean;
+}
+
 export default {
   components: { Modal },
   emits: ['update-progress'],
   setup(_, context) {
-    const sites = ref(subscribeData);
+    const sites = ref<Site[]>(subscribeData);
     const funPercentage = ref(0);
     const oldFun = ref(0);
     const showModal = ref(false);
@@ -60,27 +67,15 @@ export default {
       sites.value.forEach(site => site.subscribed = false);
       updateFunProgress();
       showModal.value = true;
-
-      const currentState = sites.value.map(site => ({
-        site: site.site,
-        subscribed: site.subscribed
-      }));
-      console.log("Current subscriptions state:", JSON.stringify(currentState));
     };
 
     const closeModal = () => {
       showModal.value = false;
     };
 
-    const toggleSubscribe = (site) => {
+    const toggleSubscribe = (site: Site) => {
       site.subscribed = !site.subscribed;
       updateFunProgress();
-
-      const currentState = sites.value.map(site => ({
-        site: site.site,
-        subscribed: site.subscribed
-      }));
-      console.log("Current subscriptions state:", JSON.stringify(currentState));
     };
 
     watchEffect(() => {
@@ -104,3 +99,4 @@ export default {
   }
 };
 </script>
+
